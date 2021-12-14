@@ -13,7 +13,9 @@ import {
 const damian = new User("Damian", "Cur")
 const alchemik = new Book("Alchemik", "Paullo Coello", 1)
 const bookingDamian = new Booking(damian)
-bookingDamian.addOrRemoveBorrowedBook("borrow", alchemik)
-// bookingDamian.addOrRemoveBorrowedBook("return", alchemik)
-// console.log(alchemik);
-console.log(new Date());
+
+console.log(bookingDamian);
+
+// var result = new Date();
+// result.setDate(result.getDate() + -7);
+// console.log(result);
