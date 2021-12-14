@@ -6,7 +6,6 @@ import {
 } from "./User.js"
 
 import {
-    subtractDates,
     checkInstance
 } from "./utility.js"
 
@@ -17,19 +16,20 @@ class Booking {
         checkInstance(bookingUser, User, "Invalid User.")
 
         this.user = bookingUser
-        this.borrowDate = "" // new Date
-        this.returnDate = "" // new Date + 7 dni
+        this.borrowDate = new Date()
+        this.returnDate = this.borrowDate.setDate(this.borrowDate.getDate() + 7)
+        //jak konwertowac date w milisekundach do normalnej daty
         this.listOfBorrowBooks = []
         this.penalty = "" // 0
     }
 
-    subtractDates() {
-        // new Date()
+    // subtractDates() {
+    //     // new Date()
 
-        return Math.abs(this.returnDate - this.borrowDate)
+    //     return Math.abs(this.returnDate - this.borrowDate)
 
-        // czy liczba jest na minusie
-    }
+    //     // czy liczba jest na minusie
+    // }
 
     // addOrRemoveBorrowedBook(key, book) {
     //     const availableKeys = ["borrow", "return"]
