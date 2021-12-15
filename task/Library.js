@@ -73,6 +73,35 @@ class Liblary {
                 throw Error("Invalid list name");
         }
     }
+
+    addUserToList(user) {
+        checkInstance(user, User, "Invalid user")
+
+        if (this.listOfUsers.includes(user)) throw Error("This user already exists")
+
+        this.listOfUsers.push(user)
+    }
+
+    borrowBookForUser(userName, bookToBorrow) {
+        checkInstance(userName, User, "Invalid user")
+        checkInstance(bookToBorrow, Book, "Invalid book")
+
+        userName.listOfBorrowedBooks.push(bookToBorrow)
+        this.listOfBorrowedBooks.push(bookToBorrow)
+    }
+
+    returnBookByUser(userName, bookToReturn) {
+        checkInstance(userName, User, "Invalid user")
+        checkInstance(bookToReturn, Book, "Invalid book")
+
+        if (!userName.listOfBorrowedBooks.includes(bookToReturn) || !this.listOfBorrowedBooks.includes(bookToReturn)) throw Error("This book is not on the list.")
+
+        const indexOfUserBorrowedList = userName.listOfBorrowedBooks.indexOf(bookToReturn)
+        userName.listOfBorrowedBooks.splice(indexOfUserBorrowedList, 1)
+
+        const indexOfBorrowedList = this.listOfBorrowedBooks.indexOf(bookToReturn)
+        this.listOfBorrowedBooks.splice(indexOfBorrowedList, 1)
+    }
 }
 
 export default Liblary
