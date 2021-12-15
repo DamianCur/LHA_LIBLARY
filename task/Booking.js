@@ -6,6 +6,7 @@ import {
 } from "./User.js"
 
 import {
+    subtractDates,
     checkInstance
 } from "./utility.js"
 
@@ -17,10 +18,9 @@ class Booking {
 
         this.user = bookingUser
         this.borrowDate = new Date()
-        this.returnDate = this.borrowDate.setDate(this.borrowDate.getDate() + 7)
-        //jak konwertowac date w milisekundach do normalnej daty
+        this.returnDate = new Date()
         this.listOfBorrowBooks = []
-        this.penalty = "" // 0
+        this.penalty = 0
     }
 
     // subtractDates() {
@@ -70,7 +70,10 @@ class Booking {
 
         const indexOfReturningBook = this.listOfBorrowBooks.indexOf(bookName)
         this.listOfBorrowBooks.splice(indexOfReturningBook, 1)
-        this.returnDate = new Date().toLocaleDateString()
+
+        this.returnDate = new Date()
+        subtractDates(this.returnDate, this.borrowDate)
+        
     }
 }
 
