@@ -72,8 +72,12 @@ class Booking {
         this.listOfBorrowBooks.splice(indexOfReturningBook, 1)
 
         this.returnDate = new Date()
-        subtractDates(this.returnDate, this.borrowDate)
-        
+
+
+        if (subtractDates(this.returnDate, this.borrowDate) > 7) {
+            this.penalty = (subtractDates(this.returnDate, this.borrowDate) - 7) * 2
+        }
+
     }
 }
 
