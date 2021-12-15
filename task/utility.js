@@ -25,8 +25,8 @@ const checkInstance = (instance, className, errorText) => {
 }
 
 const subtractDates = (returnDate, borrowDate) => {
-    const substractResult = ((returnDate.getTime() + 86400000 * 8) - borrowDate.getTime()) / 86400000
-    console.log(substractResult);
+    const substractResult = ((returnDate.getTime()) - borrowDate.getTime()) / 86400000
+    return substractResult
 }
 
 const randomBookDescription = () => {
@@ -34,10 +34,15 @@ const randomBookDescription = () => {
     return arrOfBooksData[randomNumber]
 }
 
+const checkIfKeyIsCorrect = (key, aveliableKeys) => {
+    if (!aveliableKeys.includes(key)) throw Error("Invalid key value. Aveliable keys: availableBooks, borrowedBooks")
+}
+
 export {
     stringValidation,
     numberValidation,
     randomBookDescription,
     subtractDates,
-    checkInstance
+    checkInstance,
+    checkIfKeyIsCorrect
 }
