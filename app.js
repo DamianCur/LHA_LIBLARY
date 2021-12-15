@@ -10,6 +10,8 @@ import {
     Booking
 } from "./task/Booking.js";
 
+import Liblary from "./task/Library.js";
+
 const damian = new User("Damian", "Cur")
 const alchemik = new Book("Alchemik", "Paullo Coello", 1)
 const bookingDamian = new Booking(damian)
