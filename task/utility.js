@@ -24,9 +24,10 @@ const checkInstance = (instance, className, errorText) => {
     if (!instance instanceof className) throw Error(errorText);
 }
 
-// const subtractDates = () => {
-//     return Math.abs()
-// }
+const subtractDates = (returnDate, borrowDate) => {
+    const substractResult = ((returnDate.getTime() + 86400000 * 8) - borrowDate.getTime()) / 86400000
+    console.log(substractResult);
+}
 
 const randomBookDescription = () => {
     const randomNumber = randomNumberInRange(0, arrOfBooksData.length)
@@ -37,6 +38,6 @@ export {
     stringValidation,
     numberValidation,
     randomBookDescription,
-    // subtractDates,
+    subtractDates,
     checkInstance
 }
