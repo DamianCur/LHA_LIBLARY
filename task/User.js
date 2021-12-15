@@ -14,7 +14,6 @@ class User {
         this.name = name,
             this.surname = surname,
             this.id = uuidv4()
-            //z kazdym konsole logiem zmienia się ID użytkownika chyba nie powinno tak być.
     }
 
 }
