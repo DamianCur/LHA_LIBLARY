@@ -2,7 +2,7 @@
 
 ## Description
 
-This application allows you to manage Liblary. Adding new books, adding description to tham like author etc., borrow status, create users penalties.
+This application allows you to manage Library. Adding new books, adding description to tham like author etc., borrow status, create users penalties.
 
 
 
